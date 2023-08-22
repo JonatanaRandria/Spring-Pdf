@@ -14,11 +14,10 @@ $$
     end
 $$;
 
-
-create table if not exists "employee"
+create table if not exists "cnapsEmployee"
 (
     id                  varchar
-        constraint employee_pk primary key default uuid_generate_v4(),
+        constraint cnapsEmployee_pk primary key default uuid_generate_v4(),
     first_name          varchar,
     last_name           varchar not null,
     registration_number varchar not null,
@@ -33,7 +32,8 @@ create table if not exists "employee"
     csp                 csp     not null,
     image               text,
     professional_email  varchar not null unique,
-    address             varchar not null
+    address             varchar not null,
+    end_to_end_id       varchar
 );
 
 CREATE SEQUENCE if not exists employ_ref_sequence
@@ -55,6 +55,6 @@ $BODY$
 
 CREATE TRIGGER insert_reference_number_trigger
     BEFORE INSERT
-    ON "employee"
+    ON "cnapsEmployee"
     FOR EACH ROW
 EXECUTE FUNCTION generate_employ_custom_ref();

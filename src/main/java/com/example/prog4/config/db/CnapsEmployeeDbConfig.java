@@ -5,7 +5,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -22,25 +21,21 @@ import javax.sql.DataSource;
         transactionManagerRef = "cnapsEmployeeTransactionManager")
 @AllArgsConstructor
 public class CnapsEmployeeDbConfig {
-    private DbConfig dbConfig;
 
-    @Bean
-    @Primary
+    @Bean(name = "cnapsEmployeeDataSource")
     @ConfigurationProperties(prefix = "spring.cnaps-datasource")
     public DataSource cnapsEmployeeDataSource() {
         return DataSourceBuilder.create().build();
     }
 
     @Bean
-    @Primary
     public LocalContainerEntityManagerFactoryBean cnapsEmployeeEntityManager() {
-        return dbConfig.entityManagerCreator(
+        return DbConfig.entityManagerCreator(
                 cnapsEmployeeDataSource(),
                 "com.example.prog4.repository.cnapsRepository"
         );
     }
 
-    @Primary
     @Bean
     public PlatformTransactionManager cnapsEmployeeTransactionManager() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
