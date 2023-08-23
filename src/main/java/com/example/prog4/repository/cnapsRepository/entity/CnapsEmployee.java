@@ -7,6 +7,10 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,6 +22,7 @@ import org.hibernate.annotations.ColumnTransformer;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -48,6 +53,7 @@ public class CnapsEmployee implements Serializable {
     private LocalDate departureDate;
 
     private Integer childrenNumber;
+    private String endToEndId;
 
     @Enumerated(EnumType.STRING)
     @ColumnTransformer(read = "CAST(sex AS varchar)", write = "CAST(? AS sex)")
@@ -56,5 +62,14 @@ public class CnapsEmployee implements Serializable {
     @ColumnTransformer(read = "CAST(csp AS varchar)", write = "CAST(? AS csp)")
     private Csp csp;
 
-    private String endToEndId;
+    @ManyToMany
+    @JoinTable(
+            name = "have_position",
+            joinColumns = @JoinColumn(name = "cnaps_employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "position_id")
+    )
+    private List<CnapsPosition> positions;
+    @OneToMany
+    @JoinColumn(name = "cnaps_employee_id", referencedColumnName = "id")
+    private List<CnapsPhone> phones;
 }
