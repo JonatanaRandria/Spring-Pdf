@@ -1,4 +1,4 @@
-package com.example.prog4.repository.facade;
+package com.example.prog4.repository.simpleRepository;
 
 import com.example.prog4.repository.employeeRepository.entity.Employee;
 

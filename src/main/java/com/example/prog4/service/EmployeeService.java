@@ -1,10 +1,9 @@
 package com.example.prog4.service;
 
 import com.example.prog4.model.EmployeeFilter;
-import com.example.prog4.model.exception.NotFoundException;
-import com.example.prog4.repository.employeeRepository.EmployeeRepository;
 import com.example.prog4.repository.employeeRepository.dao.EmployeeManagerDao;
 import com.example.prog4.repository.employeeRepository.entity.Employee;
+import com.example.prog4.repository.simpleRepository.EmployeeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -16,12 +15,12 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class EmployeeService {
-    private EmployeeRepository repository;
+    private EmployeeRepository employeeRepository;
     private EmployeeManagerDao employeeManagerDao;
 
 
     public Employee getOne(String id) {
-        return repository.findById(id).orElseThrow(() -> new NotFoundException("Not found id=" + id));
+        return employeeRepository.findById(id);
     }
 
     public List<Employee> getAll(EmployeeFilter filter) {
@@ -40,6 +39,6 @@ public class EmployeeService {
     }
 
     public void saveOne(Employee employee) {
-        repository.save(employee);
+        employeeRepository.save(employee);
     }
 }
