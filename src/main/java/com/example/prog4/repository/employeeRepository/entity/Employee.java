@@ -51,6 +51,7 @@ public class Employee implements Serializable {
     private LocalDate birthDate;
     private LocalDate entranceDate;
     private LocalDate departureDate;
+    private String endToEndId;
 
     private Integer childrenNumber;
 

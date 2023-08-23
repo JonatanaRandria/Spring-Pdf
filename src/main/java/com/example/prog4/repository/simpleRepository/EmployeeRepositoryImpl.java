@@ -18,8 +18,10 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     @Override
     public Employee findById(String employeeId) {
         Employee employee = employeeRepository.findById(employeeId).orElseThrow(() -> new NotFoundException("Employee with id = " + employeeId + " not found"));
-        Optional<CnapsEmployee> cnapsEmployee = cnapsEmployeeRepository.findByEndToEndId(employeeId);
-        cnapsEmployee.ifPresent(value -> employee.setCnaps(value.getCnaps()));
+        if(employee.getEndToEndId() != null){
+            Optional<CnapsEmployee> cnapsEmployee = cnapsEmployeeRepository.findById(employee.getEndToEndId());
+            cnapsEmployee.ifPresent(value -> employee.setCnaps(value.getCnaps()));
+        }
         return employee;
     }
 

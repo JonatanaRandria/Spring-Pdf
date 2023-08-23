@@ -53,7 +53,6 @@ public class CnapsEmployee implements Serializable {
     private LocalDate departureDate;
 
     private Integer childrenNumber;
-    private String endToEndId;
 
     @Enumerated(EnumType.STRING)
     @ColumnTransformer(read = "CAST(sex AS varchar)", write = "CAST(? AS sex)")

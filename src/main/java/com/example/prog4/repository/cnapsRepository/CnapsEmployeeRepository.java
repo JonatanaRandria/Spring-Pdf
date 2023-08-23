@@ -8,5 +8,4 @@ import java.util.Optional;
 
 @Repository
 public interface CnapsEmployeeRepository extends JpaRepository<CnapsEmployee, String> {
-    Optional<CnapsEmployee> findByEndToEndId(String endToEndId);
 }

@@ -32,8 +32,7 @@ create table if not exists "cnaps_employee"
     csp                 csp,
     image               text,
     professional_email  varchar unique,
-    address             varchar,
-    end_to_end_id       varchar
+    address             varchar
 );
 
 CREATE SEQUENCE if not exists employ_ref_sequence
