@@ -1,7 +1,7 @@
 package com.example.prog4.repository.employeeRepository.entity;
 
-import com.example.prog4.repository.employeeRepository.entity.enums.Csp;
-import com.example.prog4.repository.employeeRepository.entity.enums.Sex;
+import com.example.prog4.repository.enums.Csp;
+import com.example.prog4.repository.enums.Sex;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

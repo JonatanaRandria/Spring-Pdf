@@ -3,9 +3,10 @@ package com.example.prog4.model;
 
 import com.example.prog4.model.enums.EmployeeSortField;
 import com.example.prog4.model.utilities.DateRange;
-import com.example.prog4.repository.employeeRepository.entity.enums.Sex;
+import com.example.prog4.repository.enums.Sex;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,6 +23,7 @@ import static org.springframework.data.domain.Sort.Direction.ASC;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 public class EmployeeFilter implements Serializable {
     private String firstName = "";
     private String lastName = "";

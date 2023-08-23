@@ -3,7 +3,7 @@ package com.example.prog4.repository.employeeRepository.dao;
 import com.example.prog4.model.exception.InternalServerErrorException;
 import com.example.prog4.model.utilities.DateRange;
 import com.example.prog4.repository.employeeRepository.entity.Employee;
-import com.example.prog4.repository.employeeRepository.entity.enums.Sex;
+import com.example.prog4.repository.enums.Sex;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;

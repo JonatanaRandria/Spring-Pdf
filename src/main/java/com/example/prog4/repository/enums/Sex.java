@@ -1,4 +1,4 @@
-package com.example.prog4.repository.employeeRepository.entity.enums;
+package com.example.prog4.repository.enums;
 
 import java.io.Serializable;
 

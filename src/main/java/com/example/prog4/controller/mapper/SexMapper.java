@@ -1,6 +1,6 @@
 package com.example.prog4.controller.mapper;
 
-import com.example.prog4.repository.employeeRepository.entity.enums.Sex;
+import com.example.prog4.repository.enums.Sex;
 import org.springframework.stereotype.Component;
 
 @Component

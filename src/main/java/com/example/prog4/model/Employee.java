@@ -1,8 +1,8 @@
 package com.example.prog4.model;
 
 import com.example.prog4.repository.employeeRepository.entity.Position;
-import com.example.prog4.repository.employeeRepository.entity.enums.Csp;
-import com.example.prog4.repository.employeeRepository.entity.enums.Sex;
+import com.example.prog4.repository.enums.Csp;
+import com.example.prog4.repository.enums.Sex;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
