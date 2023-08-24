@@ -3,7 +3,7 @@ package com.example.prog4.service;
 import com.example.prog4.model.EmployeeFilter;
 import com.example.prog4.repository.baseRepository.dao.EmployeeManagerDao;
 import com.example.prog4.repository.baseRepository.entity.Employee;
-import com.example.prog4.repository.simpleRepository.EmployeeRepository;
+import com.example.prog4.repository.domainRepository.EmployeeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

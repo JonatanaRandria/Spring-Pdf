@@ -1,4 +1,4 @@
-package com.example.prog4.repository.simpleRepository;
+package com.example.prog4.repository.domainRepository;
 
 import com.example.prog4.repository.baseRepository.entity.Employee;
 
