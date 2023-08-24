@@ -21,7 +21,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @Table(name = "\"position\"")
 @EqualsAndHashCode
 @ToString
-public class CnapsPosition {
+public class Position {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private String id;

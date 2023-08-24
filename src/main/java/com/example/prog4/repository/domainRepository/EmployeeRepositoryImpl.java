@@ -1,26 +1,32 @@
 package com.example.prog4.repository.domainRepository;
 
 import com.example.prog4.model.exception.NotFoundException;
-import com.example.prog4.repository.cnapsRepository.CnapsEmployeeRepository;
-import com.example.prog4.repository.cnapsRepository.entity.CnapsEmployee;
-import com.example.prog4.repository.baseRepository.BaseEmployeeRepository;
 import com.example.prog4.repository.baseRepository.entity.Employee;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@AllArgsConstructor
 @Repository
-public class EmployeeRepositoryImpl implements EmployeeRepository {
-    private BaseEmployeeRepository baseEmployeeRepository;
-    private CnapsEmployeeRepository cnapsEmployeeRepository;
+public class EmployeeRepositoryImpl implements com.example.prog4.repository.domainRepository.EmployeeRepository {
+    private final com.example.prog4.repository.baseRepository.EmployeeRepository baseEmployeeRepository;
+    private final com.example.prog4.repository.cnapsRepository.EmployeeRepository cnapsEmployeeRepository;
+
+
+    public EmployeeRepositoryImpl(
+            @Qualifier("baseEmployeeRepository") com.example.prog4.repository.baseRepository.EmployeeRepository baseEmployeeRepository,
+            @Qualifier("cnapsEmployeeRepository") com.example.prog4.repository.cnapsRepository.EmployeeRepository cnapsEmployeeRepository
+    ) {
+        this.baseEmployeeRepository = baseEmployeeRepository;
+        this.cnapsEmployeeRepository = cnapsEmployeeRepository;
+    }
+
 
     @Override
     public Employee findById(String employeeId) {
         Employee employee = baseEmployeeRepository.findById(employeeId).orElseThrow(() -> new NotFoundException("Employee with id = " + employeeId + " not found"));
-        if(employee.getEndToEndId() != null){
-            Optional<CnapsEmployee> cnapsEmployee = cnapsEmployeeRepository.findById(employee.getEndToEndId());
+        if (employee.getEndToEndId() != null) {
+            Optional<com.example.prog4.repository.cnapsRepository.entity.Employee> cnapsEmployee = cnapsEmployeeRepository.findById(employee.getEndToEndId());
             cnapsEmployee.ifPresent(value -> employee.setCnaps(value.getCnaps()));
         }
         return employee;

@@ -24,7 +24,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @Table(name = "\"phone\"")
 @EqualsAndHashCode
 @ToString
-public class CnapsPhone {
+public class Phone {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private String id;
@@ -32,5 +32,5 @@ public class CnapsPhone {
     @ManyToOne
     @JoinColumn(name = "cnaps_employee_id", referencedColumnName = "id")
     @JsonIgnore
-    private CnapsEmployee employee;
+    private Employee employee;
 }
