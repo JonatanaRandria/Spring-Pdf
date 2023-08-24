@@ -1,6 +1,6 @@
-package com.example.prog4.repository.employeeRepository;
+package com.example.prog4.repository.baseRepository;
 
-import com.example.prog4.repository.employeeRepository.entity.Session;
+import com.example.prog4.repository.baseRepository.entity.Session;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

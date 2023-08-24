@@ -1,4 +1,4 @@
-package com.example.prog4.repository.employeeRepository.entity;
+package com.example.prog4.repository.baseRepository.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;

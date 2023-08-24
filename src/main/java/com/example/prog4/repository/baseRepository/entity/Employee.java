@@ -1,4 +1,4 @@
-package com.example.prog4.repository.employeeRepository.entity;
+package com.example.prog4.repository.baseRepository.entity;
 
 import com.example.prog4.repository.enums.Csp;
 import com.example.prog4.repository.enums.Sex;

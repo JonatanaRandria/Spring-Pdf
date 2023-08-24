@@ -3,8 +3,8 @@ package com.example.prog4.repository.simpleRepository;
 import com.example.prog4.model.exception.NotFoundException;
 import com.example.prog4.repository.cnapsRepository.CnapsEmployeeRepository;
 import com.example.prog4.repository.cnapsRepository.entity.CnapsEmployee;
-import com.example.prog4.repository.employeeRepository.BaseEmployeeRepository;
-import com.example.prog4.repository.employeeRepository.entity.Employee;
+import com.example.prog4.repository.baseRepository.BaseEmployeeRepository;
+import com.example.prog4.repository.baseRepository.entity.Employee;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
