@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface EmployeeRepository extends JpaRepository<Employee, String> {
+public interface BaseEmployeeRepository extends JpaRepository<Employee, String> {
 
     Optional<CnapsEmployee> findByEndToEndId(String endToEndId);
 }
