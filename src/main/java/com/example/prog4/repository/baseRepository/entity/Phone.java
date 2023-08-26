@@ -1,4 +1,4 @@
-package com.example.prog4.repository.cnapsRepository.entity;
+package com.example.prog4.repository.baseRepository.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
@@ -24,13 +24,13 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @Table(name = "\"phone\"")
 @EqualsAndHashCode
 @ToString
-public class CnapsPhone {
+public class Phone {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private String id;
     private String value;
     @ManyToOne
-    @JoinColumn(name = "cnaps_employee_id", referencedColumnName = "id")
+    @JoinColumn(name = "employee_id", referencedColumnName = "id")
     @JsonIgnore
-    private CnapsEmployee employee;
+    private Employee employee;
 }

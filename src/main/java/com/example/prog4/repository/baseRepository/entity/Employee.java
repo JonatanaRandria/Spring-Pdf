@@ -1,4 +1,4 @@
-package com.example.prog4.repository.employeeRepository.entity;
+package com.example.prog4.repository.baseRepository.entity;
 
 import com.example.prog4.repository.enums.Csp;
 import com.example.prog4.repository.enums.Sex;
@@ -52,6 +52,7 @@ public class Employee implements Serializable {
     private LocalDate birthDate;
     private LocalDate entranceDate;
     private LocalDate departureDate;
+    private String endToEndId;
 
     private Integer childrenNumber;
 

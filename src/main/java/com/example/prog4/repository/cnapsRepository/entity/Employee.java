@@ -34,7 +34,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @EqualsAndHashCode
 @AllArgsConstructor
 @Table(name = "\"cnaps_employee\"")
-public class CnapsEmployee implements Serializable {
+public class Employee implements Serializable {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private String id;
@@ -53,7 +53,6 @@ public class CnapsEmployee implements Serializable {
     private LocalDate departureDate;
 
     private Integer childrenNumber;
-    private String endToEndId;
 
     @Enumerated(EnumType.STRING)
     @ColumnTransformer(read = "CAST(sex AS varchar)", write = "CAST(? AS sex)")
@@ -68,8 +67,8 @@ public class CnapsEmployee implements Serializable {
             joinColumns = @JoinColumn(name = "cnaps_employee_id"),
             inverseJoinColumns = @JoinColumn(name = "position_id")
     )
-    private List<CnapsPosition> positions;
+    private List<Position> positions;
     @OneToMany
     @JoinColumn(name = "cnaps_employee_id", referencedColumnName = "id")
-    private List<CnapsPhone> phones;
+    private List<Phone> phones;
 }

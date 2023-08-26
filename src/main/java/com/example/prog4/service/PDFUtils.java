@@ -1,11 +1,11 @@
 package com.example.prog4.service;
 
 import com.example.prog4.config.constant.CompanyConf;
-import com.example.prog4.repository.employeeRepository.entity.Employee;
+
+import com.example.prog4.repository.baseRepository.entity.Employee;
 import com.lowagie.text.DocumentException;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
+
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.templatemode.TemplateMode;

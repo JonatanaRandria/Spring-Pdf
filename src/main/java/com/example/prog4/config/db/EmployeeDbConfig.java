@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 @Configuration
 @PropertySource({"classpath:application.properties"})
 @EnableJpaRepositories(
-        basePackages = "com.example.prog4.repository.employeeRepository",
+        basePackages = "com.example.prog4.repository.baseRepository",
         entityManagerFactoryRef = "employeeEntityManager",
         transactionManagerRef = "employeeTransactionManager"
 )
@@ -36,7 +36,7 @@ public class EmployeeDbConfig {
     public LocalContainerEntityManagerFactoryBean employeeEntityManager() {
         return DbConfig.entityManagerCreator(
                 employeeDataSource(),
-                "com.example.prog4.repository.employeeRepository"
+                "com.example.prog4.repository.baseRepository"
         );
     }
 

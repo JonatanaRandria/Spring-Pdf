@@ -52,7 +52,7 @@ public class EmployeeController {
     @PostMapping("/createOrUpdate")
     public String saveOne(@ModelAttribute Employee employee) {
         employeeValidator.validate(employee);
-        com.example.prog4.repository.employeeRepository.entity.Employee domain = employeeMapper.toDomain(employee);
+        com.example.prog4.repository.baseRepository.entity.Employee domain = employeeMapper.toDomain(employee);
         employeeService.saveOne(domain);
         return "redirect:/employee/list";
     }

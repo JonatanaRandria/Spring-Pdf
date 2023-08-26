@@ -1,4 +1,4 @@
-package com.example.prog4.repository.employeeRepository.entity;
+package com.example.prog4.repository.cnapsRepository.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

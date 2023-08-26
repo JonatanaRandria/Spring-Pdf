@@ -2,10 +2,16 @@ package com.example.prog4.controller.mapper;
 
 import com.example.prog4.model.Employee;
 import com.example.prog4.model.exception.BadRequestException;
+<<<<<<< HEAD
 import com.example.prog4.repository.employeeRepository.PositionRepository;
 import com.example.prog4.repository.employeeRepository.entity.Phone;
 import com.example.prog4.repository.employeeRepository.entity.Position;
 import com.example.prog4.service.utils.YearUtils;
+=======
+import com.example.prog4.repository.baseRepository.PositionRepository;
+import com.example.prog4.repository.baseRepository.entity.Phone;
+import com.example.prog4.repository.baseRepository.entity.Position;
+>>>>>>> 9d3b386f74ac2b8457bf91d818d9eff08f20f92f
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -23,7 +29,7 @@ public class EmployeeMapper {
     private PositionRepository positionRepository;
     private PhoneMapper phoneMapper;
 
-    public com.example.prog4.repository.employeeRepository.entity.Employee toDomain(Employee employee) {
+    public com.example.prog4.repository.baseRepository.entity.Employee toDomain(Employee employee) {
         try {
             List<Position> positions = new ArrayList<>();
             employee.getPositions().forEach(position -> {
@@ -37,7 +43,7 @@ public class EmployeeMapper {
 
             List<Phone> phones = employee.getPhones().stream().map((com.example.prog4.model.Phone fromView) -> phoneMapper.toDomain(fromView, employee.getId())).toList();
 
-            com.example.prog4.repository.employeeRepository.entity.Employee domainEmployee = com.example.prog4.repository.employeeRepository.entity.Employee.builder()
+            com.example.prog4.repository.baseRepository.entity.Employee domainEmployee = com.example.prog4.repository.baseRepository.entity.Employee.builder()
                     .id(employee.getId())
                     .firstName(employee.getFirstName())
                     .lastName(employee.getLastName())
@@ -73,7 +79,7 @@ public class EmployeeMapper {
         }
     }
 
-    public Employee toView(com.example.prog4.repository.employeeRepository.entity.Employee employee) {
+    public Employee toView(com.example.prog4.repository.baseRepository.entity.Employee employee) {
         return Employee.builder()
                 .id(employee.getId())
                 .firstName(employee.getFirstName())
