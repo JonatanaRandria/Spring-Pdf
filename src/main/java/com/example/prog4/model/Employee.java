@@ -31,6 +31,7 @@ public class Employee implements Serializable {
     private String cin;
     private String cnaps;
     private String address;
+    private String years;
 
     private Integer childrenNumber;
     private String personalEmail;

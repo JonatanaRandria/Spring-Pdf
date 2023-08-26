@@ -45,8 +45,7 @@ public class EmployeeService {
         employeeRepository.save(employee);
     }
 
-    public byte[] getEmployeeFile(Employee employee) throws DocumentException, IOException {
-        String html = PDFUtils.parseThymeleafTemplate(employee);
-        return  PDFUtils.convertToPDF(html);
+    public byte[] getEmployeeFile(com.example.prog4.model.Employee employee) throws DocumentException, IOException {
+        return  PDFUtils.HtmltoPdf(employee);
     }
 }

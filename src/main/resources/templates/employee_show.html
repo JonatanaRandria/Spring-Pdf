@@ -9,9 +9,11 @@
 </head>
 <body>
 <header th:replace="~{components/navbar.html :: navbar('show / ' + ${eId})}"></header>
-<a href="/server/employee/list/csv">
-    <button class="btn btn-success">export</button>
-</a>
+<div class="container py-5">
+    <a th:href="'/employee/'+*{employee.id}+'/formPdf'">
+        <button class="btn btn-primary">export to PDF</button>
+    </a>
+</div>
 <div class="container-fluid row text-center">
     <div class="col-12 d-flex justify-content-start mb-5 align-items-center">
         <img th:src="${employee.stringImage}" alt="no image">

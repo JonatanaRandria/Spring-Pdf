@@ -5,6 +5,7 @@ import com.example.prog4.controller.mapper.EmployeeMapper;
 import com.example.prog4.model.Employee;
 import com.example.prog4.model.EmployeeFilter;
 import com.example.prog4.service.EmployeeService;
+import com.example.prog4.service.PDFUtils;
 import com.lowagie.text.DocumentException;
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
@@ -71,15 +72,14 @@ public class EmployeeViewController extends PopulateController {
         return "redirect:/employee/list";
     }
 
-    @GetMapping(value = "employee/{id}/pdf", produces = MediaType.APPLICATION_PDF_VALUE)
-    public ResponseEntity<byte[]> getEmployeeFile(@PathVariable String id) throws DocumentException, IOException {
-
-        byte[] bytes = employeeService.getEmployeeFile(employeeService.getOne(id));
+    @GetMapping("/{eId}/formPdf")
+    public ResponseEntity<byte[]> getFormPdf(@PathVariable String eId){
+        Employee employee = employeeMapper.toView(employeeService.getOne(eId));
+        byte[] bytes = PDFUtils.HtmltoPdf(employee);
         HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.TEXT_PLAIN);
-        headers.setContentDispositionFormData("attachment", "employee_"+id+".pdf");
+        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentDispositionFormData("attachment", "Employee-" + employee.getId() + "-form.pdf");
         headers.setContentLength(bytes.length);
         return new ResponseEntity<>(bytes, headers, HttpStatus.OK);
-
     }
 }
