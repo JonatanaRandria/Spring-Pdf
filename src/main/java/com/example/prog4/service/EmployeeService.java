@@ -4,18 +4,21 @@ import com.example.prog4.model.EmployeeFilter;
 import com.example.prog4.repository.employeeRepository.dao.EmployeeManagerDao;
 import com.example.prog4.repository.employeeRepository.entity.Employee;
 import com.example.prog4.repository.simpleRepository.EmployeeRepository;
+import com.example.prog4.repository.simpleRepository.EmployeeRepositoryImpl;
+import com.lowagie.text.DocumentException;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
 @AllArgsConstructor
 public class EmployeeService {
-    private EmployeeRepository employeeRepository;
+    private EmployeeRepositoryImpl employeeRepository;
     private EmployeeManagerDao employeeManagerDao;
 
 
@@ -40,5 +43,10 @@ public class EmployeeService {
 
     public void saveOne(Employee employee) {
         employeeRepository.save(employee);
+    }
+
+    public byte[] getEmployeeFile(Employee employee) throws DocumentException, IOException {
+        String html = PDFUtils.parseThymeleafTemplate(employee);
+        return  PDFUtils.convertToPDF(html);
     }
 }

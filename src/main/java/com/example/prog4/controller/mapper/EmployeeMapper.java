@@ -5,6 +5,7 @@ import com.example.prog4.model.exception.BadRequestException;
 import com.example.prog4.repository.employeeRepository.PositionRepository;
 import com.example.prog4.repository.employeeRepository.entity.Phone;
 import com.example.prog4.repository.employeeRepository.entity.Position;
+import com.example.prog4.service.utils.YearUtils;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -45,6 +46,7 @@ public class EmployeeMapper {
                     .cnaps(employee.getCnaps())
                     .registrationNumber(employee.getRegistrationNumber())
                     .childrenNumber(employee.getChildrenNumber())
+                    .years(YearUtils.getAge(employee.getBirthDate()))
                     // enums
                     .csp(employee.getCsp())
                     .sex(employee.getSex())
@@ -85,6 +87,7 @@ public class EmployeeMapper {
                 .csp(employee.getCsp())
                 .sex(employee.getSex())
                 .stringImage(employee.getImage())
+
                 // emails
                 .professionalEmail(employee.getProfessionalEmail())
                 .personalEmail(employee.getPersonalEmail())

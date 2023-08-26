@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="container text-center">
+    <div class="">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img th:src="${employee.image}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title">Fiche employée</h3>
+                            <span>
+                                <h4 class="card-text">Numéro matricule : </h4>
+                                <i class="card-text" th:text="*{employee.registrationNumber}"> </i>
+                            </span>
+                            <span>
+                                <h4 class="card-text">Nom : </h4>
+                                <i class="card-text" th:text="*{employee.firstName}"> </i>
+                            </span>
+                            <span>
+                                <h4 class="card-text">Prénom : </h4>
+                                <i class="card-text" th:text="*{employee.lastName}"> </i>
+                            </span>
+                            <span>
+                                <h4 class="card-text">  Age : </h4>
+                                <i class="card-text" th:text="*{employee.years}"> </i>
+                            </span>
+                            <span>
+                                <h4 class="card-text">  Date d'embauche : </h4>
+                                <i class="card-text" th:text="*{employee.entranceDate}"> </i>
+                            </span>
+                            <span>
+                                <h4 class="card-text">  Date de départ : </h4>
+                                <i class="card-text" th:text="*{employee.departureDate}"> </i>
+                            </span>
+                            <span>
+                                <h4 class="card-text">  Numéro Cnaps : </h4>
+                                <i class="card-text" th:text="*{employee.cnaps}"> </i>
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-end">Information sur le salaire</h5>
+                    <p class="card-text" th:text="*{employee.salary}"></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+<footer th:replace="~{components/navbar.html :: footer}"></footer>
+</html>

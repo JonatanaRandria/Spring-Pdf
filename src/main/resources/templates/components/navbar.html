@@ -30,7 +30,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
+                    <h5 class="mb-3">Tax indentity</h5>
+                    <p><strong>NIF:</strong> <span th:text="${companyConf.taxIdentity.nif}"></span></p>
+                    <p><strong>RCS:</strong> <span th:text="${companyConf.taxIdentity.rcs}"></span></p>
+                    <p><strong>STAT:</strong> <span th:text="${companyConf.taxIdentity.stat}"></span></p>
+                </div>
+                <div class="col-md-4">
                     <h5 class="mb-3">About Us</h5>
+                    <img th:src="${companyConf.logo}" class="company-logo" alt="logo">
                     <p><strong>Name:</strong> <span th:text="${companyConf.name}"></span></p>
                     <p><strong>Description:</strong> <span th:text="${companyConf.description}"></span></p>
                     <p><strong>Slogan:</strong> <span th:text="${companyConf.slogan}"></span></p>
@@ -44,12 +51,7 @@
                         <li th:text="${phone.value}"></li>
                     </ul>
                 </div>
-                <div class="col-md-4">
-                    <h5 class="mb-3">Tax indentity</h5>
-                    <p><strong>NIF:</strong> <span th:text="${companyConf.taxIdentity.nif}"></span></p>
-                    <p><strong>RCS:</strong> <span th:text="${companyConf.taxIdentity.rcs}"></span></p>
-                    <p><strong>STAT:</strong> <span th:text="${companyConf.taxIdentity.stat}"></span></p>
-                </div>
+
             </div>
         </div>
     </div>

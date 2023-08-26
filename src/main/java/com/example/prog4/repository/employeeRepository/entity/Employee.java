@@ -47,7 +47,8 @@ public class Employee implements Serializable {
     private String personalEmail;
     private String professionalEmail;
     private String registrationNumber;
-
+    private String years;
+    private Integer salary;
     private LocalDate birthDate;
     private LocalDate entranceDate;
     private LocalDate departureDate;

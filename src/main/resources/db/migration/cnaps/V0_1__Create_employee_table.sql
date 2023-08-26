@@ -29,6 +29,7 @@ create table if not exists "cnaps_employee"
     entrance_date       date,
     departure_date      date,
     sex                 sex,
+    salary              integer ,
     csp                 csp,
     image               text,
     professional_email  varchar unique,

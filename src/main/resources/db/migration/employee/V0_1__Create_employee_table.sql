@@ -31,6 +31,7 @@ create table if not exists "employee"
     departure_date      date,
     sex                 sex     not null,
     csp                 csp     not null,
+    salary              integer ,
     image               text,
     professional_email  varchar not null unique,
     address             varchar not null

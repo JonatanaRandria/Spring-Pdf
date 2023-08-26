@@ -25,17 +25,17 @@ public class Employee implements Serializable {
 
     private MultipartFile image;
     private String stringImage;
-
+    private String salary;
     private Csp csp;
     private Sex sex;
     private String cin;
     private String cnaps;
     private String address;
+
     private Integer childrenNumber;
     private String personalEmail;
     private String professionalEmail;
     private String registrationNumber;
-
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate birthDate;
     @DateTimeFormat(pattern="yyyy-MM-dd")
