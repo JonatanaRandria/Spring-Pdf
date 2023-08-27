@@ -44,8 +44,4 @@ public class EmployeeService {
     public void saveOne(Employee employee) {
         employeeRepository.save(employee);
     }
-
-    public byte[] getEmployeeFile(com.example.prog4.model.Employee employee) throws DocumentException, IOException {
-        return  PDFUtils.HtmltoPdf(employee);
-    }
 }

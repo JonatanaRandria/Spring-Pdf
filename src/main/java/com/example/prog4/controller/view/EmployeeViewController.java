@@ -78,7 +78,7 @@ public class EmployeeViewController extends PopulateController {
         byte[] bytes = PDFUtils.HtmltoPdf(employee);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PDF);
-        headers.setContentDispositionFormData("attachment", "Employee-" + employee.getId() + "-form.pdf");
+        headers.setContentDispositionFormData("attachment", "employee-" + employee.getId() + "-file.pdf");
         headers.setContentLength(bytes.length);
         return new ResponseEntity<>(bytes, headers, HttpStatus.OK);
     }
