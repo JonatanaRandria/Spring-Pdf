@@ -7,7 +7,7 @@ public class YearUtils {
     public static String getAge(LocalDate birthDate) {
         LocalDate today = LocalDate.now();
         Period period = Period.between(birthDate, today);
-        return period.getYears()+" âge";
+        return period.getYears()+" ans";
     }
 
 }

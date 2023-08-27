@@ -13,7 +13,7 @@
             margin-bottom: 500px;
         }
 
-        .top-container {
+        .container {
             width: 100%;
             position: relative;
             height: 300px;
@@ -21,7 +21,7 @@
             padding: 0;
         }
 
-        .header-img {
+        .profile-image {
             height: 220px;
             width: 220px;
             object-fit: cover;
@@ -31,7 +31,7 @@
             overflow: hidden;
         }
 
-        .footer-img {
+        .footer-logo{
             height: 100px;
             width: 100px;
             object-fit: cover;
@@ -41,7 +41,7 @@
             left: 0;
         }
 
-        .employee-info {
+        .information {
             position: absolute;
             top: 0;
             right: 50px;
@@ -62,13 +62,13 @@
             padding-top: 10px;
         }
 
-        .footer-middle {
+        .footer-information {
             position: absolute;
             top: 0;
             left: 30%;
         }
 
-        .footer-end {
+        .footer-contact {
             position: absolute;
             top: 0;
             right: 0;
@@ -82,39 +82,39 @@
             position: relative;
             width: 100%;
         }
-        .employee-info p {
+        .information p {
             padding-bottom: 10px;
         }
     </style>
-    <title>Pdf</title>
+    <title>Employee file</title>
 </head>
 <body>
-<div class="top-container">
-    <img class="header-img" th:src="${employee.stringImage}" alt="no image" src="#"/>
-    <div class="employee-info">
-        <h3 class="title">Employee pay slip</h3>
+<div class="container">
+    <img class="profile-image" th:src="${employee.stringImage}" alt="no image" src="#"/>
+    <div class="information">
+        <h3 class="title">Employee information</h3>
         <p>Registration Number: <span th:text="${employee.registrationNumber}"></span></p>
-        <p>Last name: <span th:text="${employee.lastName}"></span></p>
-        <p>First name: <span th:text="${employee.firstName}"></span></p>
+        <p>Lastname : <span th:text="${employee.lastName}"></span></p>
+        <p>Firstname : <span th:text="${employee.firstName}"></span></p>
         <p>Age: <span th:text="${employee.years}"></span></p>
         <p>Entrance date: <span th:text="${employee.entranceDate}"></span></p>
         <p>Departure date: <span th:text="${employee.departureDate}"></span></p>
-        <p>Cnaps number: <span th:text="${employee.cnaps}"></span></p>
+        <p>Cnaps Ref Number: <span th:text="${employee.cnaps}"></span></p>
     </div>
 </div>
 <div class="body">
     <h3 style="padding-bottom: 20px">Salary information:</h3>
-    <p style="padding-left: 70px">Current gross salary: <b th:text="${employee.salary}"></b> $ / Month</p>
+    <p style="padding-left: 70px">Current salary: <b th:text="${employee.salary}"></b> $ / Month</p>
 </div>
 <footer>
     <div class="footer">
-        <img class="footer-img" th:src="${companyConf.logo}" alt="no image" src="#"/>
-        <div class="footer-middle">
+        <img class="footer-logo" th:src="${companyConf.logo}" alt="no image"  />
+        <div class="footer-information">
             <p>Company: <span th:text="${companyConf.name}"></span></p>
             <p>NIF: <span th:text="${companyConf.taxIdentity.nif}"></span></p>
             <p>STAT: <span th:text="${companyConf.taxIdentity.stat}"></span></p>
         </div>
-        <div class="footer-end">
+        <div class="footer-contact">
             <p>Address: <span th:text="${companyConf.address}"></span></p>
             <div style="padding-bottom: 20px">
                 <span>Phone : </span>

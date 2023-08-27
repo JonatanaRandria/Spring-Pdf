@@ -44,6 +44,7 @@ public class EmployeeMapper {
                     .address(employee.getAddress())
                     .cin(employee.getCin())
                     .cnaps(employee.getCnaps())
+                    .salary(employee.getSalary())
                     .registrationNumber(employee.getRegistrationNumber())
                     .childrenNumber(employee.getChildrenNumber())
                     .years(YearUtils.getAge(employee.getBirthDate()))
@@ -88,6 +89,7 @@ public class EmployeeMapper {
                 .sex(employee.getSex())
                 .stringImage(employee.getImage())
                 .years(YearUtils.getAge(employee.getBirthDate()))
+                .salary(employee.getSalary())
                 // emails
                 .professionalEmail(employee.getProfessionalEmail())
                 .personalEmail(employee.getPersonalEmail())

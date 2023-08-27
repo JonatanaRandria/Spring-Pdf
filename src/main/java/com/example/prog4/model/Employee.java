@@ -25,7 +25,7 @@ public class Employee implements Serializable {
 
     private MultipartFile image;
     private String stringImage;
-    private String salary;
+    private Integer salary;
     private Csp csp;
     private Sex sex;
     private String cin;
