@@ -1,8 +1,9 @@
 package com.example.prog4.controller.mapper;
 
 import com.example.prog4.model.Employee;
+import com.example.prog4.model.enums.YearEnum;
 import com.example.prog4.model.exception.BadRequestException;
-import com.example.prog4.service.utils.YearUtils;
+import com.example.prog4.controller.view.YearUtils;
 import com.example.prog4.repository.baseRepository.PositionRepository;
 import com.example.prog4.repository.baseRepository.entity.Phone;
 import com.example.prog4.repository.baseRepository.entity.Position;
@@ -47,7 +48,7 @@ public class EmployeeMapper {
                     .salary(employee.getSalary())
                     .registrationNumber(employee.getRegistrationNumber())
                     .childrenNumber(employee.getChildrenNumber())
-                    .years(YearUtils.getAge(employee.getBirthDate()))
+                    .years(employee.getYears())
                     // enums
                     .csp(employee.getCsp())
                     .sex(employee.getSex())
@@ -89,6 +90,35 @@ public class EmployeeMapper {
                 .sex(employee.getSex())
                 .stringImage(employee.getImage())
                 .years(YearUtils.getAge(employee.getBirthDate()))
+                .salary(employee.getSalary())
+                // emails
+                .professionalEmail(employee.getProfessionalEmail())
+                .personalEmail(employee.getPersonalEmail())
+                // dates
+                .birthDate(employee.getBirthDate())
+                .departureDate(employee.getDepartureDate())
+                .entranceDate(employee.getEntranceDate())
+                // lists
+                .phones(employee.getPhones().stream().map(phoneMapper::toView).toList())
+                .positions(employee.getPositions())
+                .build();
+    }
+
+    public Employee toViewPDF(com.example.prog4.repository.baseRepository.entity.Employee employee,String years) {
+        return Employee.builder()
+                .id(employee.getId())
+                .firstName(employee.getFirstName())
+                .lastName(employee.getLastName())
+                .address(employee.getAddress())
+                .cin(employee.getCin())
+                .cnaps(employee.getCnaps())
+                .registrationNumber(employee.getRegistrationNumber())
+                .childrenNumber(employee.getChildrenNumber())
+                // enums
+                .csp(employee.getCsp())
+                .sex(employee.getSex())
+                .stringImage(employee.getImage())
+                .years(YearUtils.getAgeByEnum(YearEnum.valueOf(years),employee.getBirthDate()))
                 .salary(employee.getSalary())
                 // emails
                 .professionalEmail(employee.getProfessionalEmail())

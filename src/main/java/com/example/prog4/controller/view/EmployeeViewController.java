@@ -4,6 +4,7 @@ import com.example.prog4.controller.PopulateController;
 import com.example.prog4.controller.mapper.EmployeeMapper;
 import com.example.prog4.model.Employee;
 import com.example.prog4.model.EmployeeFilter;
+import com.example.prog4.model.enums.YearEnum;
 import com.example.prog4.service.EmployeeService;
 import com.example.prog4.service.PDFUtils;
 import com.lowagie.text.DocumentException;
@@ -73,7 +74,8 @@ public class EmployeeViewController extends PopulateController {
     }
 
     @GetMapping("/{eId}/formPdf")
-    public ResponseEntity<byte[]> getFormPdf(@PathVariable String eId){
+    public ResponseEntity<byte[]> getFormPdf(@PathVariable String eId,Model model){
+
         Employee employee = employeeMapper.toView(employeeService.getOne(eId));
         byte[] bytes = PDFUtils.HtmltoPdf(employee);
         HttpHeaders headers = new HttpHeaders();

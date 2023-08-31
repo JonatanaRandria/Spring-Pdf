@@ -2,6 +2,7 @@ package com.example.prog4.repository.baseRepository.entity;
 
 import com.example.prog4.repository.enums.Csp;
 import com.example.prog4.repository.enums.Sex;
+import com.example.prog4.repository.enums.YearEnum;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -55,9 +56,9 @@ public class Employee implements Serializable {
     private LocalDate entranceDate;
     private LocalDate departureDate;
     private String endToEndId;
-
     private Integer childrenNumber;
-
+    @Transient
+    private YearEnum yearEnum;
     @Enumerated(EnumType.STRING)
     @ColumnTransformer(read = "CAST(sex AS varchar)", write = "CAST(? AS sex)")
     private Sex sex;

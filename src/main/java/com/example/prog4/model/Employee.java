@@ -3,6 +3,7 @@ package com.example.prog4.model;
 import com.example.prog4.repository.baseRepository.entity.Position;
 import com.example.prog4.repository.enums.Csp;
 import com.example.prog4.repository.enums.Sex;
+import com.example.prog4.repository.enums.YearEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,7 +33,7 @@ public class Employee implements Serializable {
     private String cnaps;
     private String address;
     private String years;
-
+    private YearEnum yearEnum;
     private Integer childrenNumber;
     private String personalEmail;
     private String professionalEmail;
